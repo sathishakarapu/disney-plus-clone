@@ -8,11 +8,9 @@ const Trending = () =>{
 
     
      const [trending,setTrending] = useState([]);
-    // console.log(movieData);
 
     useEffect(()=>{
         const newTrending = movieData.filter((movie)=> movie.type === 'trending')
-        // console.log(newMovieDisney);
         setTrending(newTrending)
     },[])
 

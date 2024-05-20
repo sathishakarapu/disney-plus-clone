@@ -8,6 +8,23 @@ import movies from "../images/movie-icon.svg";
 import series from "../images/series-icon.svg";
 import styled from "styled-components";
 
+
+const MenuToggle = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    span {
+      height: 2px;
+      background: white;
+      margin: 4px 0;
+      width: 25px;
+    }
+  }
+`;
+
 const Nav = styled.div`
   position: fixed;
   top: 0;
@@ -21,6 +38,10 @@ const Nav = styled.div`
   padding: 0 36px;
   letter-spacing: 1.6px;
   z-index: 3;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
 `;
 
 const Logo = styled.a`
@@ -33,6 +54,10 @@ const Logo = styled.a`
   img {
     display: block;
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    width: 60px;
   }
 `;
 
@@ -96,12 +121,35 @@ const NavMenu = styled.div`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    flex-flow: column nowrap;
+    position: absolute;
+    top: 0;
+    margin-top: 150px;
+    right: 0;
+    left: -30px;
+    transition: transform 0.3s ease-in-out;
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+
+    a{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px;
+      background-color: #090909;
+      width: 100%;
+    }
+  }
 `;
 
 const DropDown = styled.div``;
 const SignOut = styled.div``;
 
 const Header = () => {
+
+  const [open, setOpen] = React.useState(false);
+
   return (
     <>
       <Nav>
@@ -110,7 +158,12 @@ const Header = () => {
             <img src={disney} alt="disney" />
           </Link>
         </Logo>
-        <NavMenu>
+        <MenuToggle onClick={() => setOpen(!open)}>
+          <span />
+          <span />
+          <span />
+        </MenuToggle>
+        <NavMenu open={open}>
           <a href="#">
             <img src={home} alt="Home" />
             <span>HOME</span>
