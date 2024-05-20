@@ -125,26 +125,24 @@ const NavMenu = styled.div`
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     position: absolute;
-    top: 0;
-    margin-top: 150px;
+    top: 50px;
     right: 0;
-    left: -30px;
+    background-color: #090913;
     transition: transform 0.3s ease-in-out;
-    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-
-    a{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px;
-      background-color: #090909;
-      width: 100%;
-    }
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+    height: auto;
+    width: auto;
+    padding-top: 20px;
   }
 `;
 
 const DropDown = styled.div``;
-const SignOut = styled.div``;
+const SignOut = styled.div`
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
 
 const Header = () => {
 
@@ -164,7 +162,7 @@ const Header = () => {
           <span />
         </MenuToggle>
         <NavMenu open={open}>
-          <a href="#">
+          <a href="/">
             <img src={home} alt="Home" />
             <span>HOME</span>
           </a>
@@ -172,15 +170,15 @@ const Header = () => {
             <img src={search} alt="SEARCH" />
             <span>SEARCH</span>
           </a>
-          <a href="#">
+          <a href="/originals">
             <img src={original} alt="Original" />
             <span>ORIGINAL</span>
           </a>
-          <a href="#">
+          <a href="/trending">
             <img src={movies} alt="Movies" />
             <span>MOVIES</span>
           </a>
-          <a href="#">
+          <a href="/recommends">
             <img src={series} alt="Series" />
             <span>SERIES</span>
           </a>

@@ -15,7 +15,7 @@ const Trending = () =>{
     },[])
 
     return(
-        <Container>
+        <Container style={{marginTop:"70px",padding:"10px"}}>
             <h4>Trending</h4>
             <Content>
                 {trending.map((movie,key)=>(

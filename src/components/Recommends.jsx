@@ -13,7 +13,7 @@ const Recommends = () => {
     },[])
 
     return(
-        <Container>
+        <Container style={{marginTop:"70px",padding:"10px"}}>
             <h4>Recommended for you</h4>
             <Content>
                {recommend.map((movie,key)=>(

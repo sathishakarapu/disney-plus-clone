@@ -15,7 +15,7 @@ const Originals = () =>{
     },[])
 
     return(
-        <Container>
+        <Container style={{marginTop:"70px",padding:"10px"}}>
             <h4>Originals</h4>
             <Content>
                 {originals.map((movie,key)=>(

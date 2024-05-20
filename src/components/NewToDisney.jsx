@@ -7,16 +7,14 @@ import {Link} from 'react-router-dom';
 const NewToDisney = () =>{
 
      const [newDisney,setNewDisney] = useState([]);
-    // console.log(movieData);
 
     useEffect(()=>{
         const newMovieDisney = movieData.filter((movie)=> movie.type === 'new')
-        // console.log(newMovieDisney);
         setNewDisney(newMovieDisney)
     },[])
 
     return(
-        <Container>
+        <Container style={{marginTop:"70px",padding:"10px"}}>
             <h4>New to Disney+</h4>
             <Content>
                 {newDisney.map((movie,key)=>(
